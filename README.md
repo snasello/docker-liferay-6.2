@@ -1,4 +1,4 @@
-== run lep
+# run lep
 must specify db_lep as alias for deb
 ex : https://github.com/tutumcloud/tutum-docker-mysql
 
@@ -10,5 +10,5 @@ docker run -d --name db-mysql-lep -v /var/lib/docker/datas/lportal:/var/bdd/init
 3. run liferay
 docker run -d --name lep62 --link db-mysql-lep:db_lep -t -i c6216819f9c9
 
-== remove all
+# remove all
 docker rm $(docker ps -a -q)
