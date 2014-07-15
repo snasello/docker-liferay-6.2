@@ -1,4 +1,13 @@
-# run lep
+Pour lancer le conteneur liferay il faut d'abord un conteneur bdd.
+Il est possible de connecter Mysql ou Postgresql. Pour cela il faut specifichier une variable d'environnement DB_TYPE au niveau du conteneur bdd.
+pour Mysql on mettra comme valeur MYSQL et pour Posgresql POSTGRESQL.
+
+Au niveau du dockerfile on mettra simplement : 
+ENV DB_TYPE MYSQL
+
+L'alias pour connecter le conteneur liferay a la base est db_lep.
+
+
 must specify db_lep as alias for deb
 ex : https://github.com/tutumcloud/tutum-docker-mysql
 
@@ -10,5 +19,3 @@ docker run -d --name db-mysql-lep -v /var/lib/docker/datas/lportal:/var/bdd/init
 3. run liferay
 docker run -d --name lep62 --link db-mysql-lep:db_lep -t -i c6216819f9c9
 
-# remove all
-docker rm $(docker ps -a -q)
