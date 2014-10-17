@@ -11,7 +11,7 @@ L'alias pour connecter le conteneur liferay a la base est db_lep.
 must specify db_lep as alias for deb
 ex : https://github.com/tutumcloud/tutum-docker-mysql
 
-for exemple link with mysql :
+for example link with mysql :
 1. create bdd lportal with lportal/lportal
 docker run -t -i --rm -vm /var/lib/mysql:var/lib/docker/db-mysql-lep snasello/centos6-mysql /opt/scripts/create_db.sh lportal lportal lportal
 2. run mysql

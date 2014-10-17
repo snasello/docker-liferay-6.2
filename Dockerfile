@@ -1,15 +1,19 @@
 # Liferay
 #
-# VERSION 0.0.1
+# VERSION 0.0.2
 #
 
-FROM snasello/centos6-java7:7u60
+# 0.0.1 : initial file with java 7u60
+# 0.0.2 : change base image : java 7u71
+
+FROM snasello/centos6-java7:7u71
 
 MAINTAINER Samuel Nasello <samuel.nasello@elosi.com>
 
 # install liferay
 ## download
 ADD http://downloads.sourceforge.net/project/lportal/Liferay%20Portal/6.2.1%20GA2/liferay-portal-tomcat-6.2-ce-ga2-20140319114139101.zip /tmp/liferay-portal-tomcat-6.2-ce-ga2-20140319114139101.zip
+RUN yum install -y unzip
 ## uncompress liferay bundle
 RUN unzip /tmp/liferay-portal-tomcat-6.2-ce-ga2-20140319114139101.zip -d /opt
 RUN rm -f /tmp/liferay-portal-tomcat-6.2-ce-ga2-20140319114139101.zip
