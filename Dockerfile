@@ -1,6 +1,6 @@
 # Liferay
 #
-# VERSION 0.0.2
+# VERSION 0.0.3
 #
 
 # 0.0.1 : initial file with java 7u60
