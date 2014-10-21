@@ -16,7 +16,7 @@ RUN yum install -y unzip \
 	&& curl -O -s -k -L -C - http://downloads.sourceforge.net/project/lportal/Liferay%20Portal/6.2.1%20GA2/liferay-portal-tomcat-6.2-ce-ga2-20140319114139101.zip \
 	&& unzip liferay-portal-tomcat-6.2-ce-ga2-20140319114139101.zip -d /opt \
 	&& rm liferay-portal-tomcat-6.2-ce-ga2-20140319114139101.zip \
-	&& echo -e '\nCATALINA_OPTS="$CATALINA_OPTS -Dexternal-properties=portal-bd-${DB_LEP_ENV_DB_TYPE}.properties"' >> /opt/liferay-portal-6.2-ce-ga2/tomcat-7.0.42/bin/setenv.sh
+	&& echo -e '\nCATALINA_OPTS="$CATALINA_OPTS -Dexternal-properties=portal-bd-${DB_TYPE}.properties"' >> /opt/liferay-portal-6.2-ce-ga2/tomcat-7.0.42/bin/setenv.sh
 ## add configuration liferay file
 ADD lep/portal-bundle.properties /opt/liferay-portal-6.2-ce-ga2/portal-bundle.properties
 ADD lep/portal-bd-MYSQL.properties /opt/liferay-portal-6.2-ce-ga2/portal-bd-MYSQL.properties
