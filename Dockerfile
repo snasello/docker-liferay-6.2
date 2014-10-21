@@ -1,18 +1,19 @@
-# Liferay
+# Liferay 6.2
 #
-# VERSION 0.0.3
+# VERSION 0.0.4
 #
 
 # 0.0.1 : initial file with java 7u60
 # 0.0.2 : change base image : java 7u71
 # 0.0.3 : chain run commande to reduce image size (from 1.175 GB to 883.5MB), add JAVA_HOME env
+# 0.0.4 : change to debian:wheezy in order to reduce image size (883.5MB -> 664.1 MB)
 
-FROM snasello/centos6-java7:7u71
+FROM snasello/docker-debian-java7:7u71
 
 MAINTAINER Samuel Nasello <samuel.nasello@elosi.com>
 
 # install liferay
-RUN yum install -y unzip \
+RUN apt-get install -y unzip \
 	&& curl -O -s -k -L -C - http://downloads.sourceforge.net/project/lportal/Liferay%20Portal/6.2.1%20GA2/liferay-portal-tomcat-6.2-ce-ga2-20140319114139101.zip \
 	&& unzip liferay-portal-tomcat-6.2-ce-ga2-20140319114139101.zip -d /opt \
 	&& rm liferay-portal-tomcat-6.2-ce-ga2-20140319114139101.zip \
