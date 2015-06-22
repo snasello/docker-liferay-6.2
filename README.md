@@ -10,7 +10,7 @@ you can start it directly, it will use the hsqldb (not for production!)
 ```
 docker run --rm -t -i -p 8080:8080 snasello/liferay-6.2:6.2-ce-ga4 
 ```
-When you have the message "INFO: Server startup in xxx ms" you can open a browser and go to http://localhost:8080 (with boot2docker you must specify the ip)
+When you have the message "INFO: Server startup in xxx ms" you can open a browser and go to http://localhost:8080 (with boot2docker you must specify the ip, you can found it with # boot2docker ip)
 
 ## Link with Database
 Acutally you can link it with mysql or postgresql but it is easy to add one.
