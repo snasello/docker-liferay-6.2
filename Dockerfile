@@ -1,6 +1,6 @@
 # Liferay 6.2
 #
-# VERSION 0.0.8
+# VERSION 0.0.9
 #
 
 # 0.0.1 : initial file with java 7u60
@@ -11,26 +11,27 @@
 # 0.0.6 : liferay 6.2-ce-ga3 + java 7u79
 # 0.0.7 : liferay 6.2-ce-ga4
 # 0.0.8 : liferay 6.2-ce-ga5
+# 0.0.9 : liferay 6.2-ce-ga6
 
 FROM snasello/docker-debian-java7:7u79
 
 MAINTAINER Samuel Nasello <samuel.nasello@elosi.com>
 
 # install liferay
-RUN curl -O -s -k -L -C - http://downloads.sourceforge.net/project/lportal/Liferay%20Portal/6.2.4%20GA5/liferay-portal-tomcat-6.2-ce-ga5-20151119152357409.zip \
-	&& unzip liferay-portal-tomcat-6.2-ce-ga5-20151119152357409.zip -d /opt \
-	&& rm liferay-portal-tomcat-6.2-ce-ga5-20151119152357409.zip
+RUN curl -O -s -k -L -C - http://downloads.sourceforge.net/project/lportal/Liferay%20Portal/6.2.5%20GA6/liferay-portal-tomcat-6.2-ce-ga6-20160112152609836.zip \
+	&& unzip liferay-portal-tomcat-6.2-ce-ga6-20160112152609836.zip -d /opt \
+	&& rm liferay-portal-tomcat-6.2-ce-ga6-20160112152609836.zip
 
 # add config for bdd
-RUN /bin/echo -e '\nCATALINA_OPTS="$CATALINA_OPTS -Dexternal-properties=portal-bd-${DB_TYPE}.properties"' >> /opt/liferay-portal-6.2-ce-ga5/tomcat-7.0.62/bin/setenv.sh
+RUN /bin/echo -e '\nCATALINA_OPTS="$CATALINA_OPTS -Dexternal-properties=portal-bd-${DB_TYPE}.properties"' >> /opt/liferay-portal-6.2-ce-ga6/tomcat-7.0.62/bin/setenv.sh
 
 # add configuration liferay file
-ADD lep/portal-bundle.properties /opt/liferay-portal-6.2-ce-ga5/portal-bundle.properties
-ADD lep/portal-bd-MYSQL.properties /opt/liferay-portal-6.2-ce-ga5/portal-bd-MYSQL.properties
-ADD lep/portal-bd-POSTGRESQL.properties /opt/liferay-portal-6.2-ce-ga5/portal-bd-POSTGRESQL.properties
+ADD lep/portal-bundle.properties /opt/liferay-portal-6.2-ce-ga6/portal-bundle.properties
+ADD lep/portal-bd-MYSQL.properties /opt/liferay-portal-6.2-ce-ga6/portal-bd-MYSQL.properties
+ADD lep/portal-bd-POSTGRESQL.properties /opt/liferay-portal-6.2-ce-ga6/portal-bd-POSTGRESQL.properties
 
 # volumes
-VOLUME ["/var/liferay-home", "/opt/liferay-portal-6.2-ce-ga5/"]
+VOLUME ["/var/liferay-home", "/opt/liferay-portal-6.2-ce-ga6/"]
 
 # Ports
 EXPOSE 8080
@@ -40,4 +41,4 @@ ENV JAVA_HOME /opt/java
 
 # EXEC
 CMD ["run"]
-ENTRYPOINT ["/opt/liferay-portal-6.2-ce-ga5/tomcat-7.0.62/bin/catalina.sh"]
+ENTRYPOINT ["/opt/liferay-portal-6.2-ce-ga6/tomcat-7.0.62/bin/catalina.sh"]
